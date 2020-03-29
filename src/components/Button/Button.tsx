@@ -29,7 +29,7 @@ export interface IButtonProps {
   children: React.ReactNode;
 }
 
-const FXButton: React.FC<IButtonProps> = (props) => {
+const Button: React.FC<IButtonProps> = (props) => {
   const {
     className,
     disabled,
@@ -49,8 +49,8 @@ const FXButton: React.FC<IButtonProps> = (props) => {
       [`fx-btn-${size}`]: size,
       [`fx-btn-${buttonType}`]: buttonType,
       [`fx-btn-icon`]: icon,
-      [`fx-btn-icon-${iconPosition}`]: iconPosition,
-      [`fx-btn-disabled`]: disabled,
+      [`fx-btn-icon-${iconPosition}`]: icon && iconPosition,
+      [`fx-btn-disabled`]: buttonType === ButtonType.Link && disabled,
     },
     className
   );
@@ -70,10 +70,10 @@ const FXButton: React.FC<IButtonProps> = (props) => {
   }
 };
 
-FXButton.defaultProps = {
+Button.defaultProps = {
   disabled: false,
   buttonType: ButtonType.Default,
   iconPosition: IconPosition.Left,
 };
 
-export default FXButton;
+export default Button;
