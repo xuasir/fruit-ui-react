@@ -37,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "precommit": "git add --all && lint-staged",
+    "precommit": "lint-staged",
     "commit": "git-cz"
   },
   "eslintConfig": {
