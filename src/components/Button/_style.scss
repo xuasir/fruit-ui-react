@@ -4,6 +4,7 @@
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
   vertical-align: middle;
+  text-align: center;
   color: $body-color;
   white-space: nowrap;
   background-image: none;
@@ -27,6 +28,10 @@
     > * {
       pointer-events: none;
     }
+  }
+
+  &.fx-btn-block {
+    width: 100%;
   }
 
   &.fx-btn-lg {
@@ -64,6 +69,18 @@
       $primary,
       $primary
     );
+  }
+
+  &.fx-btn-dashed {
+    @include button-style(
+      $white,
+      $gray-400,
+      $body-color,
+      $white,
+      $primary,
+      $primary
+    );
+    border-style: dashed;
   }
 
   &.fx-btn-link {

@@ -11,6 +11,7 @@ export enum ButtonType {
   Primary = "primary",
   Danger = "danger",
   Link = "link",
+  Dashed = "dashed",
 }
 
 export enum IconPosition {
@@ -27,6 +28,7 @@ interface BaseButtonProps {
   icon?: string;
   iconPosition?: IconPosition;
   children: React.ReactNode;
+  block?: boolean;
 }
 
 type NativeButtonProps = BaseButtonProps &
@@ -44,6 +46,7 @@ const Button: React.FC<IButtonProps> = (props) => {
     children,
     icon,
     iconPosition,
+    block,
     ...rest
   } = props;
 
@@ -57,6 +60,7 @@ const Button: React.FC<IButtonProps> = (props) => {
       [`fx-btn-icon`]: icon,
       [`fx-btn-icon-${iconPosition}`]: icon && iconPosition,
       [`fx-btn-disabled`]: buttonType === ButtonType.Link && disabled,
+      "fx-btn-block": block,
     },
     className
   );
