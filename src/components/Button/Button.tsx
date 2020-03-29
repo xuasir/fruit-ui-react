@@ -18,7 +18,7 @@ export enum IconPosition {
   Left = "left",
 }
 
-export interface IButtonProps {
+interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: ButtonSize;
@@ -29,6 +29,11 @@ export interface IButtonProps {
   children: React.ReactNode;
 }
 
+type NativeButtonProps = BaseButtonProps &
+  React.ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps &
+  React.AnchorHTMLAttributes<HTMLElement>;
+export type IButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 const Button: React.FC<IButtonProps> = (props) => {
   const {
     className,
@@ -39,6 +44,7 @@ const Button: React.FC<IButtonProps> = (props) => {
     children,
     icon,
     iconPosition,
+    ...rest
   } = props;
 
   // class == fx-btn fx-btn-{size} fx-btn-{type}
@@ -57,13 +63,13 @@ const Button: React.FC<IButtonProps> = (props) => {
 
   if (buttonType === ButtonType.Link && href) {
     return (
-      <a className={classes} href={href}>
+      <a className={classes} href={href} {...rest}>
         {children}
       </a>
     );
   } else {
     return (
-      <button className={classes} disabled={disabled}>
+      <button className={classes} disabled={disabled} {...rest}>
         {children}
       </button>
     );
