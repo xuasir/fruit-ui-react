@@ -19,6 +19,10 @@
   cursor: pointer;
   transition: $btn-transition;
 
+  &:not(:last-child) {
+    margin-right: -$btn-border-width;
+  }
+
   &.fx-btn-disabled,
   &[disabled] {
     cursor: not-allowed;
@@ -30,10 +34,12 @@
     }
   }
 
+  // 按父组件宽度确定宽度 block特性表现
   &.fx-btn-block {
     width: 100%;
   }
 
+  // size 特性表现
   &.fx-btn-lg {
     @include button-size(
       $btn-padding-y-lg,
@@ -52,6 +58,7 @@
     );
   }
 
+  // type 特性表现
   &.fx-btn-danger {
     @include button-style($danger, $danger, $white);
   }
@@ -105,5 +112,41 @@
       color: $btn-link-disabled-color;
       pointer-events: none;
     }
+
+    &:disabled,
+    &.fx-btn-disabled:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  // shape 特性表现
+  &.fx-btn-round-sm {
+    @include button-round-raduis(
+      $btn-padding-x-sm,
+      $btn-line-height,
+      $btn-font-size-sm
+    );
+  }
+
+  &.fx-btn-round-normal {
+    @include button-round-raduis(
+      $btn-padding-x,
+      $btn-line-height,
+      $btn-font-size
+    );
+  }
+
+  &.fx-btn-round-lg {
+    @include button-round-raduis(
+      $btn-padding-x-lg,
+      $btn-line-height,
+      $btn-font-size-lg
+    );
+  }
+
+  &.fx-btn-circle-sm,
+  &.fx-btn-circle-normal,
+  &.fx-btn-circle-lg {
+    border-radius: 50%;
   }
 }

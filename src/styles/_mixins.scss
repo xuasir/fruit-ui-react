@@ -4,6 +4,10 @@
   border-radius: $border-raduis;
 }
 
+@mixin button-round-raduis($padding, $line-height, $font-size) {
+  border-radius: ($padding + $line-height * $font-size)/2;
+}
+
 @mixin button-style(
   $background,
   $border,
@@ -27,6 +31,7 @@
     color: $hover-color;
     background: $hover-background;
     border-color: $hover-border;
+    outline: none;
   }
 
   &:disabled,
