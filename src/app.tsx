@@ -3,7 +3,7 @@ import Button, {
   ButtonSize,
   ButtonType,
   ButtonShape,
-} from "./components/Button/Button";
+} from "./components/Button";
 
 function App() {
   return (
