@@ -1,5 +1,7 @@
 import React from "react";
-import Button, {
+import {
+  Button,
+  ButtonGroup,
   ButtonSize,
   ButtonType,
   ButtonShape,
@@ -29,6 +31,11 @@ function App() {
       <Button buttonType={ButtonType.Link} href="http://www.baidu.com" disabled>
         button link disabled
       </Button>
+      <ButtonGroup size={ButtonSize.Large}>
+        <Button>按钮1</Button>
+        <Button>按钮2</Button>
+        <Button>按钮3</Button>
+      </ButtonGroup>
     </div>
   );
 }
