@@ -1,3 +1,7 @@
 import Button from "./button";
+import ButtonGroup from "./button-group";
 export { ButtonSize, ButtonType, ButtonShape } from "./button";
-export default Button;
+
+// Button.Group = ButtonGroup
+
+export { Button, ButtonGroup };

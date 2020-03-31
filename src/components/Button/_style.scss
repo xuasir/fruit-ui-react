@@ -19,10 +19,6 @@
   cursor: pointer;
   transition: $btn-transition;
 
-  &:not(:last-child) {
-    margin-right: -$btn-border-width;
-  }
-
   &.fx-btn-disabled,
   &[disabled] {
     cursor: not-allowed;
@@ -148,5 +144,23 @@
   &.fx-btn-circle-normal,
   &.fx-btn-circle-lg {
     border-radius: 50%;
+  }
+}
+
+.fx-btn-group {
+  .fx-btn:hover {
+    position: relative;
+    z-index: 10;
+  }
+
+  .fx-btn:not(:last-child) {
+    margin-right: -$btn-border-width;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .fx-btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
