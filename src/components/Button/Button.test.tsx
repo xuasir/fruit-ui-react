@@ -5,7 +5,7 @@ import Button, {
   ButtonSize,
   ButtonType,
   IButtonProps,
-} from "./Button";
+} from "./button";
 
 const defaultProps = {
   onClick: jest.fn(),
