@@ -1,28 +1,28 @@
 // !default防止变量被覆盖
 // 中性面板由白色到黑色-适用于内容展示，便于阅读
 $white: #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-100: #fafafa !default;
+$gray-200: #f5f5f5 !default;
+$gray-300: #f0f0f0 !default;
+$gray-400: #dedede !default;
+$gray-500: #c2c2c2 !default;
+$gray-600: #979797 !default;
+$gray-700: #818181 !default;
+$gray-800: #606060 !default;
+$gray-900: #3c3c3c !default;
 $black: #000 !default;
 
 // 基础色彩体系
-$blue: #0d6efd !default;
+$blue: #0f93ff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
-$pink: #d63384 !default;
-$red: #dc3545 !default;
-$orange: #fd7e14 !default;
-$yellow: #fadb14 !default;
-$green: #52c41a !default;
-$teal: #20c997 !default;
-$cyan: #17a2b8 !default;
+$pink: #ee0290 !default;
+$red: #ff0d22 !default;
+$orange: #ee6002 !default;
+$yellow: #f0bd00 !default;
+$green: #00d212 !default;
+$teal: #0eb988 !default;
+$cyan: #00a5ee !default;
 
 // 主要颜色及功能颜色
 $primary: $blue !default;
