@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 
-export type Theme =
+export type IconTheme =
   | "primary"
   | "secondary"
   | "success"
@@ -11,20 +11,20 @@ export type Theme =
   | "light"
   | "dark"
   | "default";
-export type Icon =
+export type IconCategory =
   | "chevron-down"
   | "close"
   | "loading"
   | "radio-on"
   | "radio-off";
-export type Size = "1x" | "2x" | "3x" | "4x" | "5x";
+export type IconSize = "1x" | "2x" | "3x" | "4x" | "5x";
 
 export interface IconProps {
-  theme?: Theme;
+  theme?: IconTheme;
   className?: string;
-  icon?: Icon;
+  icon?: IconCategory;
   spin?: boolean;
-  size?: Size;
+  size?: IconSize;
 }
 
 const Icon: React.FC<IconProps> = (props) => {

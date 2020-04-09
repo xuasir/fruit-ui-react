@@ -43,7 +43,7 @@ $theme-color: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
-  "default": $white,
+  "default": inherit,
 );
 
 // 字体簇-优化显示效果
