@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import Icon, { IconOfProps } from "../Icon";
 
 export enum ButtonSize {
   Large = "lg",
@@ -30,8 +31,9 @@ interface BaseButtonProps {
   size?: ButtonSize;
   buttonType?: ButtonType;
   href?: string;
-  icon?: string;
+  icon?: IconOfProps;
   iconPosition?: IconPosition;
+  isLoading?: boolean;
   children: React.ReactNode;
   block?: boolean;
   shape?: ButtonShape;
@@ -52,9 +54,10 @@ const Button: React.FC<IButtonProps> = (props) => {
     children,
     icon,
     iconPosition,
+    isLoading,
     block,
     shape,
-    ...rest
+    ...restProps
   } = props;
 
   // class == fx-btn fx-btn-{size} fx-btn-{type}
@@ -66,23 +69,43 @@ const Button: React.FC<IButtonProps> = (props) => {
       [`fx-btn-${buttonType}`]: buttonType,
       [`fx-btn-icon`]: icon,
       [`fx-btn-icon-${iconPosition}`]: icon && iconPosition,
-      [`fx-btn-${shape}-${size ? size : "normal"}`]: shape,
+      [`is-loading`]: icon && isLoading,
+      [`fx-btn-${shape}-${size ? size : "normal"}`]: shape === "round",
+      [`fx-btn-${shape}`]: shape === "circle",
       [`fx-btn-disabled`]: buttonType === ButtonType.Link && disabled,
       "fx-btn-block": block,
     },
     className
   );
 
+  function renderChildByIconPosition(): React.ReactNode {
+    if (iconPosition === "left") {
+      return (
+        <>
+          {icon ? <Icon icon={icon} spin={isLoading} /> : ""}
+          <span>{children}</span>
+        </>
+      );
+    } else if (iconPosition === "right") {
+      return (
+        <>
+          <span>{children}</span>
+          {icon ? <Icon icon={icon} spin={isLoading} /> : ""}
+        </>
+      );
+    }
+  }
+
   if (buttonType === ButtonType.Link && href) {
     return (
-      <a className={classes} href={href} {...rest}>
-        {children}
+      <a className={classes} href={href} {...restProps}>
+        {renderChildByIconPosition()}
       </a>
     );
   } else {
     return (
-      <button className={classes} disabled={disabled} {...rest}>
-        {children}
+      <button className={classes} disabled={disabled} {...restProps}>
+        {renderChildByIconPosition()}
       </button>
     );
   }

@@ -1,0 +1,82 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import Button from './button';
+
+<Meta title='基础/Button' component={Button} />
+
+# 按钮演示
+
+* #### 不同Type的按钮
+<!-- 不同类型的按钮适合于不同的场景 -->
+
+<Preview>
+  <Story name='不同Type的按钮' height='40px' >
+    <>
+      <Button>Default</Button>
+      <Button buttonType="primary">Primary</Button>
+      <Button buttonType="danger">Danger</Button>
+      <Button buttonType="dashed">Dashed</Button>
+      <Button buttonType="link" href="http://baidu.com" target="_blank">Link</Button>
+    </>
+  </Story>
+</Preview>
+
+* #### 不同Size的按钮
+
+<Preview>
+  <Story name='不同Size的按钮' height='50px' >
+    <>
+      <Button size="lg">Large</Button>
+      <Button>Default</Button>
+      <Button size="sm">Small</Button>
+    </>
+  </Story>
+</Preview>
+
+* #### 不同形状的按钮
+
+<Preview>
+  <Story name='不同形状的按钮' height='50px' >
+    <>
+      <Button shape="round">Round</Button>
+      {/* <Button icon="close" shape="circle"></Button> */}
+    </>
+  </Story>
+</Preview>
+
+* #### 不同状态的按钮
+
+<Preview>
+  <Story name='不同状态的按钮' height='50px' >
+    <>
+      <Button disabled>Disabled</Button>
+      <Button disabled buttonType="primary">Primary Disabled</Button>
+      <Button disabled buttonType="link">Link Disabled</Button>
+    </>
+  </Story>
+</Preview>
+
+* #### Block特性的按钮
+
+<Preview>
+  <Story name='Block特性的按钮' height='100px' >
+    <>
+      <Button block buttonType="primary">Block</Button>
+      <Button block buttonType="dashed">Block</Button>
+    </>
+  </Story>
+</Preview>
+
+* #### 带Icon的按钮
+
+<Preview>
+  <Story name='带Icon的按钮' height='50px' >
+    <>
+      <Button icon="loading" buttonType="primary" isLoading>loading</Button>
+      <Button icon="chevron-down" iconPosition="right" buttonType="link" href="http://baidu.com">close</Button>
+    </>
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Button} />

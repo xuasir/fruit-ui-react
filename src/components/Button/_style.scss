@@ -19,6 +19,10 @@
   cursor: pointer;
   transition: $btn-transition;
 
+  span {
+    user-select: none;
+  }
+
   &.fx-btn-disabled,
   &[disabled] {
     cursor: not-allowed;
@@ -140,10 +144,39 @@
     );
   }
 
-  &.fx-btn-circle-sm,
-  &.fx-btn-circle-normal,
-  &.fx-btn-circle-lg {
+  &.fx-btn-circle {
     border-radius: 50%;
+  }
+
+  // icon位置
+  &.fx-btn-icon-left {
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  &.fx-btn-icon-right {
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  // loading相关
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+    cursor: not-allowed;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -$btn-border-width;
+      right: -$btn-border-width;
+      top: -$btn-border-width;
+      bottom: -$btn-border-width;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.35);
+    }
   }
 }
 
