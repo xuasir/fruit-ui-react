@@ -1,0 +1,21 @@
+@import "./font/icon.scss";
+
+@each $key, $val in $theme-color {
+  .fx-icon-#{$key} {
+    display: inline-block;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: $val;
+  }
+}
+
+@for $i from 1 through 5 {
+  .fx-icon-#{$i}x {
+    font-size: 1em * $i;
+  }
+}
+
+.fx-icon-spin {
+  animation: loading-rotate 1s infinite linear;
+}
