@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import classNames from "classnames";
 import Icon from "../Icon";
+import Trasition from "../Transition";
 
 export type AlertType = "success" | "info" | "warning" | "error";
 
@@ -8,7 +9,7 @@ interface BaseProps {
   type: AlertType;
   title?: string;
   description: string;
-  closeable?: boolean;
+  closeAble?: boolean;
   showIcon?: boolean;
   closeText?: string;
 }
@@ -18,7 +19,7 @@ const Alert: React.FC<BaseProps> = (props) => {
     type,
     title,
     description,
-    closeable,
+    closeAble,
     showIcon,
     closeText,
     ...restPorps
@@ -27,40 +28,51 @@ const Alert: React.FC<BaseProps> = (props) => {
     [`fx-alert-${type}`]: type,
   });
 
+  let [closeAlert, setCloseAlert] = useState(true);
+  let onClickCloseBtn = useCallback(() => {
+    setCloseAlert(false);
+  }, []);
+
   function renderCloseBtn(): React.ReactNode {
     return (
       <>
         {closeText ? (
-          <span className="fx-alert-close_btn">{closeText}</span>
+          <span className="fx-alert-close_btn" onClick={onClickCloseBtn}>
+            {closeText}
+          </span>
         ) : (
-          <Icon className="fx-alert-close_btn" icon="close" />
+          <span className="fx-alert-close_btn" onClick={onClickCloseBtn}>
+            <Icon icon="close" />
+          </span>
         )}
       </>
     );
   }
   return (
-    <div className={wrapClasses} {...restPorps}>
-      {showIcon ? (
-        <Icon
-          className="fx-alert-icon"
-          icon={type}
-          size={title ? "2x" : "1x"}
-        />
-      ) : (
-        ""
-      )}
-      <div className="fx-alert-content">
-        {title ? <span className="fx-alert-title">{title}</span> : ""}
-        <p className="fx-alert-description">{description}</p>
-        {closeable ? renderCloseBtn() : ""}
+    <Trasition in={closeAlert} timeout={300} animation="zoom-in-top">
+      <div className={wrapClasses} {...restPorps}>
+        {showIcon ? (
+          <Icon
+            className="fx-alert-icon"
+            icon={type}
+            size={title ? "2x" : "1x"}
+          />
+        ) : (
+          ""
+        )}
+        <div className="fx-alert-content">
+          {title ? <span className="fx-alert-title">{title}</span> : ""}
+          <p className="fx-alert-description">{description}</p>
+          {closeAble ? renderCloseBtn() : ""}
+        </div>
       </div>
-    </div>
+    </Trasition>
   );
 };
 
 Alert.defaultProps = {
   type: "info",
-  closeable: true,
+  closeAble: true,
   showIcon: false,
 };
 

@@ -44,6 +44,7 @@
         $alert-title-font-weight,
         $alert-title-line-height
       );
+      margin-bottom: $alert-title-margin-bottom;
     }
 
     .fx-alert-description {
@@ -62,7 +63,9 @@
       position: absolute;
       top: 0;
       right: -$alert-content-padding/2;
-      // font-size: 1em;
+      font-size: $alert-font-size;
+      line-height: 1em;
+      font-weight: $alert-font-weight;
       user-select: none;
       cursor: pointer;
     }
