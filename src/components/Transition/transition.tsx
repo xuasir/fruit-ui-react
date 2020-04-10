@@ -10,18 +10,19 @@ export type AnimationName =
 
 interface BaseProps {
   animation?: AnimationName;
+  wrapper?: boolean;
 }
 
 export type TransitionProps = BaseProps & CSSTransitionProps;
 
 const Transition: React.FC<TransitionProps> = (props) => {
-  let { children, animation, classNames, ...restProps } = props;
+  let { children, animation, classNames, wrapper, ...restProps } = props;
   return (
     <CSSTransition
       classNames={animation ? animation : classNames}
       {...restProps}
     >
-      {children}
+      {wrapper ? <div>{children}</div> : children}
     </CSSTransition>
   );
 };
