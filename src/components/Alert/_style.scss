@@ -17,7 +17,7 @@
     background-color: $alert-background-color-success;
   }
 
-  &.fx-alert-wraning {
+  &.fx-alert-warning {
     background-color: $alert-background-color-wraning;
   }
 
@@ -27,11 +27,15 @@
 
   .fx-alert-icon {
     display: table-cell;
+    vertical-align: middle;
+    width: $alert-title-font-size;
   }
 
   .fx-alert-content {
+    position: relative;
     display: table-cell;
-    margin-left: $alert-content-margin-left;
+    vertical-align: middle;
+    padding: 0 $alert-content-padding;
 
     .fx-alert-title {
       margin: 0;
@@ -49,6 +53,18 @@
         $alert-font-weight,
         $alert-line-height
       );
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .fx-alert-close_btn {
+      position: absolute;
+      top: 0;
+      right: -$alert-content-padding/2;
+      // font-size: 1em;
+      user-select: none;
+      cursor: pointer;
     }
   }
 }

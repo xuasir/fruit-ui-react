@@ -1,12 +1,8 @@
 import React from "react";
 import classNames from "classnames";
+import Icon from "../Icon";
 
-export enum AlertType {
-  Success = "success",
-  Info = "info",
-  Wraning = "wraning",
-  Error = "error",
-}
+export type AlertType = "success" | "info" | "warning" | "error";
 
 interface BaseProps {
   type: AlertType;
@@ -18,24 +14,52 @@ interface BaseProps {
 }
 
 const Alert: React.FC<BaseProps> = (props) => {
-  let { type, title, description, closeable, showIcon } = props;
+  let {
+    type,
+    title,
+    description,
+    closeable,
+    showIcon,
+    closeText,
+    ...restPorps
+  } = props;
   let wrapClasses = classNames("fx-alert", {
     [`fx-alert-${type}`]: type,
   });
+
+  function renderCloseBtn(): React.ReactNode {
+    return (
+      <>
+        {closeText ? (
+          <span className="fx-alert-close_btn">{closeText}</span>
+        ) : (
+          <Icon className="fx-alert-close_btn" icon="close" />
+        )}
+      </>
+    );
+  }
   return (
-    <div className={wrapClasses}>
-      {/* icon部分 */}
+    <div className={wrapClasses} {...restPorps}>
+      {showIcon ? (
+        <Icon
+          className="fx-alert-icon"
+          icon={type}
+          size={title ? "2x" : "1x"}
+        />
+      ) : (
+        ""
+      )}
       <div className="fx-alert-content">
         {title ? <span className="fx-alert-title">{title}</span> : ""}
         <p className="fx-alert-description">{description}</p>
-        {/* 关闭部分 */}
+        {closeable ? renderCloseBtn() : ""}
       </div>
     </div>
   );
 };
 
 Alert.defaultProps = {
-  type: AlertType.Info,
+  type: "info",
   closeable: true,
   showIcon: false,
 };
