@@ -10,13 +10,18 @@ export type IconTheme =
   | "danger"
   | "light"
   | "dark"
+  | "error"
   | "default";
 export type IconCategory =
   | "chevron-down"
   | "close"
   | "loading"
   | "radio-on"
-  | "radio-off";
+  | "radio-off"
+  | "success"
+  | "warning"
+  | "info"
+  | "error";
 export type IconSize = "1x" | "2x" | "3x" | "4x" | "5x";
 
 export interface IconProps {
