@@ -8,12 +8,62 @@ import Alert from './alert'
 * #### 不同Type的Alert
 
 <Preview>
-  <Story name='不同Type的Alert' height='350px'>
+  <Story name='不同Type的Alert' height='250px'>
     <>
-      <Alert showIcon description="这是详情不带标题的alert" />
-      <Alert showIcon type="success" title="标题" description="这是成功的alert" />
-      <Alert showIcon type="warning" title="标题" description="这是警告的alert" />
-      <Alert showIcon type="error" title="标题" description="这是错误的alert" />
+      <Alert showIcon description="这是详情不带标题的默认alert" />
+      <Alert showIcon type="success" description="这是详情不带标题的成功alert" />
+      <Alert showIcon type="warning" description="这是详情不带标题的警告alert" />
+      <Alert showIcon type="error" description="这是详情不带标题的错误alert" />
+    </>
+  </Story>
+</Preview>
+
+* #### 带Icon的Alert
+
+<Preview>
+  <Story name='带Icon的Alert' height='300px'>
+    <>
+      <Alert showIcon title="默认" description="这是默认的的alert" />
+      <Alert showIcon type="success" title="成功" description="这是成功的alert" />
+      <Alert showIcon type="warning" title="警告" description="这是警告的alert" />
+      <Alert showIcon type="error" title="错误" description="这是错误的alert" />
+    </>
+  </Story>
+</Preview>
+
+* #### 无法关闭的Alert
+
+<Preview>
+  <Story name='无法关闭的Alert' height='300px'>
+    <>
+      <Alert closeAble={false} showIcon title="默认" description="这是默认的的alert" />
+      <Alert closeAble={false} showIcon type="success" title="成功" description="这是成功的alert" />
+      <Alert closeAble={false} showIcon type="warning" title="警告" description="这是警告的alert" />
+      <Alert closeAble={false} showIcon type="error" title="错误" description="这是错误的alert" />
+    </>
+  </Story>
+</Preview>
+
+* #### 自定义关闭字样的Alert
+
+<Preview>
+  <Story name='自定义关闭字样的Alert' height='300px'>
+    <>
+      <Alert closeText="关闭了" description="这是默认的的alert" />
+      <Alert closeText="关闭了" showIcon type="success" title="成功" description="这是成功的alert" />
+      <Alert closeText="关闭了" showIcon type="warning" title="警告" description="这是警告的alert" />
+      <Alert closeText="关闭了" showIcon type="error" title="错误" description="这是错误的alert" />
+    </>
+  </Story>
+</Preview>
+
+* #### 超出省略的Alert
+
+<Preview>
+  <Story name='超出省略的Alert' height='300px'>
+    <>
+      <Alert closeText="关闭了" description="这是默认的的alert" />
+      <Alert showIcon type="error" title="错误" description="这是一条非常非常长的错误的alert，文字说明文字说明文字说明文字说明文字说明" />
     </>
   </Story>
 </Preview>
