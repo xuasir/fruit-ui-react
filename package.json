@@ -36,7 +36,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "commit": "git-cz",
-    "storybook": "start-storybook -p 9009 -s public",
+    "docs": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
   "config": {
@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.9",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.2",
     "react-is": "^16.13.1"
   }
