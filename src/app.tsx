@@ -1,21 +1,18 @@
-import React from "react";
-import {
-  Button,
-  ButtonGroup,
+import React from 'react'
+import Button, {
   ButtonSize,
   ButtonType,
-  ButtonShape,
-} from "./components/Button";
+  ButtonShape
+} from './components/Button'
 
 function App() {
   return (
-    <div className="App" style={{ padding: "10px" }}>
+    <div className="App" style={{ padding: '10px' }}>
       <Button
         shape={ButtonShape.Round}
         block
         buttonType={ButtonType.Primary}
-        size={ButtonSize.Large}
-      >
+        size={ButtonSize.Large}>
         primary large
       </Button>
       <Button shape={ButtonShape.Round} buttonType={ButtonType.Default}>
@@ -31,13 +28,13 @@ function App() {
       <Button buttonType={ButtonType.Link} href="http://www.baidu.com" disabled>
         button link disabled
       </Button>
-      <ButtonGroup size={ButtonSize.Large}>
+      <Button.group size={ButtonSize.Large}>
         <Button>按钮1</Button>
         <Button>按钮2</Button>
         <Button>按钮3</Button>
-      </ButtonGroup>
+      </Button.group>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

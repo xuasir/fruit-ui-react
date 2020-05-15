@@ -1,5 +1,5 @@
-import Transition, { AnimationName } from "./transition";
+import Transition, { AnimationName } from './transition'
 
-export type TransitionAnimationName = AnimationName;
+export type TransitionAnimationName = AnimationName
 
-export default Transition;
+export default Transition
