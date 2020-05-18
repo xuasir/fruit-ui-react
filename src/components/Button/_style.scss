@@ -1,0 +1,199 @@
+.fx-btn {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  vertical-align: middle;
+  text-align: center;
+  color: $body-color;
+  white-space: nowrap;
+  background-image: none;
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $btn-font-size,
+    $btn-border-radius
+  );
+  border: $btn-border-width solid transparent;
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+
+  span {
+    user-select: none;
+  }
+
+  &.fx-btn-disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  // 按父组件宽度确定宽度 block特性表现
+  &.fx-btn-block {
+    width: 100%;
+  }
+
+  // size 特性表现
+  &.fx-btn-lg {
+    @include button-size(
+      $btn-padding-y-lg,
+      $btn-padding-x-lg,
+      $btn-font-size-lg,
+      $btn-border-radius-lg
+    );
+  }
+
+  &.fx-btn-sm {
+    @include button-size(
+      $btn-padding-y-sm,
+      $btn-padding-x-sm,
+      $btn-font-size-sm,
+      $btn-border-radius-sm
+    );
+  }
+
+  // type 特性表现
+  &.fx-btn-danger {
+    @include button-style($danger, $danger, $white);
+  }
+
+  &.fx-btn-primary {
+    @include button-style($primary, $primary, $white);
+  }
+
+  &.fx-btn-default {
+    @include button-style(
+      $white,
+      $gray-400,
+      $body-color,
+      $white,
+      $primary,
+      $primary
+    );
+  }
+
+  &.fx-btn-dashed {
+    @include button-style(
+      $white,
+      $gray-400,
+      $body-color,
+      $white,
+      $primary,
+      $primary
+    );
+    border-style: dashed;
+  }
+
+  &.fx-btn-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+
+    &:hover {
+      color: $btn-link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+
+    &:focus,
+    &.focus {
+      text-decoration: $link-hover-decoration;
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &.fx-btn-disabled {
+      color: $btn-link-disabled-color;
+      pointer-events: none;
+    }
+
+    &:disabled,
+    &.fx-btn-disabled:hover {
+      cursor: not-allowed;
+    }
+  }
+
+  // shape 特性表现
+  &.fx-btn-round-sm {
+    @include button-round-raduis(
+      $btn-padding-x-sm,
+      $btn-line-height,
+      $btn-font-size-sm
+    );
+  }
+
+  &.fx-btn-round-normal {
+    @include button-round-raduis(
+      $btn-padding-x,
+      $btn-line-height,
+      $btn-font-size
+    );
+  }
+
+  &.fx-btn-round-lg {
+    @include button-round-raduis(
+      $btn-padding-x-lg,
+      $btn-line-height,
+      $btn-font-size-lg
+    );
+  }
+
+  &.fx-btn-circle {
+    border-radius: 50%;
+  }
+
+  // icon位置
+  &.fx-btn-icon-left {
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  &.fx-btn-icon-right {
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  // loading相关
+  &.is-loading {
+    position: relative;
+    pointer-events: none;
+    cursor: not-allowed;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -$btn-border-width;
+      right: -$btn-border-width;
+      top: -$btn-border-width;
+      bottom: -$btn-border-width;
+      border-radius: inherit;
+      background: rgba(255, 255, 255, 0.35);
+    }
+  }
+}
+
+.fx-btn-group {
+  .fx-btn:hover {
+    position: relative;
+    z-index: 10;
+  }
+
+  .fx-btn:not(:last-child) {
+    margin-right: -$btn-border-width;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .fx-btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
