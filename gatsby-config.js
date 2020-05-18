@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: ['gatsby-plugin-sass']
+  plugins: ['gatsby-theme-docz', 'gatsby-plugin-sass']
 }
