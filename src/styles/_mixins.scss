@@ -1,0 +1,81 @@
+@mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-raduis;
+}
+
+@mixin button-round-raduis($padding, $line-height, $font-size) {
+  border-radius: ($padding + $line-height * $font-size)/2;
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background, 8.5%),
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+    outline: none;
+  }
+
+  &:disabled,
+  &.fx-btn-disabled {
+    color: $color;
+    background: $background;
+    border-color: $border;
+  }
+}
+
+@mixin alert-font($font-size, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+// animation
+@mixin zoom-in(
+  $prefix: "top",
+  $scaleBegain: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top
+) {
+  .zoom-in-#{$prefix}-enter {
+    opacity: 0;
+    transform: $scaleBegain;
+  }
+
+  .zoom-in-#{$prefix}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform-origin: $origin;
+  }
+
+  .zoom-in-#{$prefix}-exit {
+    opacity: 1;
+    transform: $scaleEnd;
+  }
+
+  .zoom-in-#{$prefix}-exit-active {
+    opacity: 0;
+    transform: $scaleBegain;
+    transform-origin: $origin;
+  }
+}

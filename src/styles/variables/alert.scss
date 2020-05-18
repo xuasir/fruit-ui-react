@@ -1,0 +1,39 @@
+// 边框和圆角
+
+$alert-border-width: 1px !default;
+$alert-border-color: $gray-400 !default;
+
+$alert-border-raduis: 0.25rem !default;
+
+// padding
+$alert-padding-x: 0.775rem !default;
+$alert-padding-y: 1.55rem !default;
+
+$alert-title-margin-bottom: 0.175rem !default;
+$alert-content-padding: 0.475rem !default;
+
+// shadow
+$alert-box-shadow: 0 0.5rem 0.5rem rgba($black, 0.15) !default;
+
+$alert-box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
+
+// 字体相关
+$alert-font-weight: $font-weight-base !default;
+$alert-title-font-weight: $font-weight-bold !default;
+
+$alert-font-size: $font-size-sm !default;
+$alert-title-font-size: $font-size-base !default;
+
+$alert-line-height: $line-height-sm !default;
+$alert-title-line-height: $line-height-sm !default;
+
+// 颜色
+$alert-font-color: $white !default;
+$alert-background-color-info: $info !default;
+$alert-background-color-wraning: $yellow !default;
+$alert-background-color-error: $red !default;
+$alert-background-color-success: $success !default;
+
+$alert-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+  opacity 0.2s ease !default;
