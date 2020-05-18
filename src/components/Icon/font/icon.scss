@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "fruit-icons";
+  src: url("iconfont.woff?t=1586424724889") format("woff"),
+    url("iconfont.ttf?t=1586424724889") format("truetype");
+}
+
+.fruit-icons {
+  font-family: "fruit-icons" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icon-list: (
+  "loading": "\e61c",
+  "chevron-down": "\e764",
+  "close": "\e766",
+  "radio-off": "\e790",
+  "radio-on": "\e791",
+  "success": "\e613",
+  "info": "\e64a",
+  "warning": "\e683",
+  "error": "\e651",
+);
+
+// 生成图标类名
+@each $key, $val in $icon-list {
+  .fx-icon-#{$key}:before {
+    content: $val;
+  }
+}
